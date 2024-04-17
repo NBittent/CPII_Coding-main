@@ -1,0 +1,10 @@
+nicolas, nicolas@email.com, 19
+jao, jao@email.com, 30
+lucas, lucas@email.com, 23
+pedro, pedro@email.com, 50
+gabriel, gabriel@email.com, 40
+igor, igor@email.com, 34
+davi, davi@email.com, 32
+jota, jota@email.com, 65
+javier, javier@email.com, 82
+xavier, xavier@email.com, 15
