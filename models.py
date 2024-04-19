@@ -9,7 +9,7 @@ class ProductModel(db.Model):
 
     price = db.Column(db.Float, nullable=False)
 
-    #stock = db.Column(db.Integer, nullable=False)
+    stock= db.Column(db.Integer, nullable=False)
 
 class PedidoModel(db.Model):
 

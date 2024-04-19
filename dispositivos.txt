@@ -1,0 +1,10 @@
+micro-ondas; 1500; 82
+geladeira; 1999; 52
+ventilador; 240; 200
+notebook; 3499; 32
+monitor; 300; 23
+teclado; 210; 50
+mouse; 199; 25
+torradeira; 578; 30
+fogao; 2330; 50
+computador; 5000; 11

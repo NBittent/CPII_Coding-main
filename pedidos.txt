@@ -1,0 +1,5 @@
+5, Geladeira, Em andamento, 7
+2, micro-ondas, Entregue, 6
+6, computador, Em andamento, 15
+7, ventilador, Entregue, 7
+10, fogao, Entregue, 14

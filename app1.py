@@ -59,7 +59,7 @@ class Product(Resource):
             prod = ProductModel.query.filter_by(id=prod_id).first()
  
             if prod:
-                return {'id': prod.id, 'name': prod.name, 'price': prod.price}, 200
+                return {'id': prod.id, 'name': prod.name, 'price': prod.price, 'stock': prod.stock}, 200
             else:
                 return {'error': 'Produto não encontrado'}, 404
  
@@ -75,13 +75,14 @@ class Product(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('name', type=str, required=True, help='name is required')
         parser.add_argument('price', type=float)
+        parser.add_argument('stock', type=int)
         args = parser.parse_args()
  
-        prod = ProductModel(name=args['name'], price=args['price'])
+        prod = ProductModel(name=args['name'], price=args['price'], stock=args['stock'])
         db.session.add(prod)
         db.session.commit()
  
-        return {'id': prod.id, 'name': prod.name, 'price': prod.price}, 201
+        return {'id': prod.id, 'name': prod.name, 'price': prod.price, 'stock': prod.stock}, 201
    
  
 ##################### Endpoint Pedidos #####################
@@ -95,20 +96,21 @@ class Pedidos(Resource):
             order = PedidoModel.query.filter_by(id=pedido_id).first()
  
             if order:
-                return {'id': order.id, 'description': order.description, 'status': order.status}, 200
+                return {'id': order.id, 'usuario_id': order.usuario_id, 'description': order.description, 'status': order.status, 'id_produto': order.id_produto}, 200
             else:
                 return {'error': 'Pedido não encontrado'}, 404
  
         else:
             print("Pedido não encontrado")
-#            order = PedidoModel.query.all()
-#            return [{'id': order.id, 'name': order.name, 'price': order.price, 'stock': order.stock} for order in
-#
-#                    order], 200
+            order = PedidoModel.query.all()
+            return [{'id': order.id, 'name': order.name, 'price': order.price, 'stock': order.stock} for order in
+
+                  order], 200
        
     #### Metodo POST ####
     def post(self):
         parser = reqparse.RequestParser()
+        
         parser.add_argument('description', type=str, required=True, help='description is required')
         parser.add_argument('status', type=str, required=True, help='status is required')
         args = parser.parse_args()
